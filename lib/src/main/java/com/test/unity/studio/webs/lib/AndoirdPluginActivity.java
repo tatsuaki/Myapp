@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -16,7 +18,7 @@ import com.unity3d.player.UnityPlayerActivity;
  * Created by maki on 2016/02/21.
  * MyApp.
  */
-public class AndoirdPluginActivity extends UnityPlayerActivity implements View.OnClickListener{
+public class AndoirdPluginActivity extends Activity implements View.OnClickListener{
     private static final String TAG = "AndoirdPluginActivity";
     public ImageButton mStartButton = null;
     public ImageButton mMovieButton = null;
@@ -53,7 +55,18 @@ public class AndoirdPluginActivity extends UnityPlayerActivity implements View.O
             Intent intent = new Intent(AndoirdPluginActivity.this, WebViewActivity.class);
             startActivity(intent);
         } else if (view == mMovieButton) {
-
+//            requestWindowFeature(Window.FEATURE_NO_TITLE);
+//
+//            setContentView(R.layout.web_activity);
+//            mWebView = (MyWebView)findViewById(R.id.webView);
+//            mWebView.invalidate();
+//            mWebView.InitWebView("http://qiita.com/m_pDorobou/items/8a838feaaa9891471d78");
+//
+//            mTopButton  = (Button)findViewById(R.id.top_button);
+//            mExitButton = (Button)findViewById(R.id.exit_button);
+//
+//            mTopButton.setOnClickListener(this);
+//            mExitButton.setOnClickListener(this);
         }
     }
 }

@@ -10,10 +10,12 @@
         <activity android:name="com.test.unity.studio.webs.lib.AndoirdPluginActivity"
             android:screenOrientation="landscape"
             android:launchMode="singleTask">
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
         <activity android:name="com.test.unity.studio.webs.lib.WebViewActivity" android:screenOrientation="landscape"/>
     </application>

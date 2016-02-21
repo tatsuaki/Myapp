@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.unity3d.player.UnityPlayer;
+import com.unity3d.player.UnityPlayerActivity;
 
 /**
  * Created by maki on 2016/02/21.
  * MyApp.
  */
 public class WebViewActivity extends Activity implements View.OnClickListener{
-    private static final String TAG = "AndoirdPluginActivity";
+    private static final String TAG = "WebViewActivity";
 
     public MyWebView mWebView = null;
     private Button mTopButton= null;
@@ -45,21 +46,23 @@ public class WebViewActivity extends Activity implements View.OnClickListener{
         if (view == mTopButton) {
             finish();
         } else if (view == mExitButton) {
-//            final Activity activity = UnityPlayer.currentActivity;
-//            Toast.makeText(this, activity.getLocalClassName(), Toast.LENGTH_SHORT).show();
-//            Log.d(TAG, "activity.getContentScene() = " + activity.getContentScene());
+            final Activity activity = UnityPlayer.currentActivity;
+            Toast.makeText(this, activity.getLocalClassName(), Toast.LENGTH_SHORT).show();
+//          Log.d(TAG, "activity.getContentScene() = " + activity.getContentScene());
 //            activity.getContentScene();
             // (3) Unity側のスクリプトのonCallBack関数を呼び出す関数
             // スクリプトがAttachされたGameObjectの名前を渡し、スクリプト内指定の
             // 関数を呼び出すことが可能。呼び出し先の関数がvoid型の場合は
             // UnityPlayer.UnitySendMessage(gameObjName, "onCallBack", ""); のように記述。
-            UnityPlayer.UnitySendMessage("SceneManager", "onCallBack", "ChangeScene");
-//            activity.runOnUiThread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    Toast.makeText(activity, "message", Toast.LENGTH_SHORT).show();
-//                }
-//            });
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d(TAG, "UnitySendMessage 1");
+                    UnityPlayer.UnitySendMessage("SceneManagers", "onCallBack", "ChangeScene");
+                    Log.d(TAG, "UnitySendMessage 2");
+                //  activity.setContentView(UnityPlayer);
+                }
+            });
         }
     }
 }
