@@ -1,22 +1,16 @@
 package com.test.unity.studio.webs.lib;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Point;
 import android.net.Uri;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
-
-import java.util.Map;
 
 /**
  * Created by maki on 2016/01/27.
@@ -25,8 +19,14 @@ import java.util.Map;
 public class MyWebView extends WebView {
     private static final String TAG = "MyWebView";
 
-    public MyWebView(Context context) {super(context);}
-    public MyWebView(Context context, AttributeSet attrs) {super(context, attrs);}
+    public MyWebView(Context context) {
+        super(context);
+    }
+
+    public MyWebView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
     public MyWebView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs);
         Log.i(TAG, "MyWebView");
