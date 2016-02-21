@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- name : custom view class name -->
+    <declare-styleable name="MyWebView">
+    </declare-styleable>
+</resources>

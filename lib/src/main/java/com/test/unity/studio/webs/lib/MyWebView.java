@@ -22,32 +22,18 @@ import java.util.Map;
  * Created by maki on 2016/01/27.
  * WebApp.
  */
-public class MyWeb extends WebView {
-    private static final String TAG = "MyWeb";
-    private static FrameLayout layout = null;
+public class MyWebView extends WebView {
+    private static final String TAG = "MyWebView";
 
-    public MyWeb(Context context) {
-        super(context);
-    }
-    public MyWeb(Context context, AttributeSet attrs, Map inflateParams) {
+    public MyWebView(Context context) {super(context);}
+    public MyWebView(Context context, AttributeSet attrs) {super(context, attrs);}
+    public MyWebView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs);
-    }
-    public MyWeb(Context context, AttributeSet attrs, Map inflateParams, int defStyle) {
-        super(context, attrs);
+        Log.i(TAG, "MyWebView");
     }
 
     public void InitWebView(final String url) {
         Log.i(TAG, "InitWebView uri = " + url);
-        //  final WebViewPlugin self = this;
-//        final Activity a = UnityPlayer.currentActivity;
-//        a.runOnUiThread(new Runnable() {public void run() {
-//        if (mWebView == null) {
-//            mWebView = new WebView(activity);
-//            Log.d(TAG, "mWebView == null");
-//        } else {
-//            Log.d(TAG, "mWebView != null");
-//            return;
-//        }
         setVisibility(View.VISIBLE);
         //  webView.setFocusable(true);
         setFocusableInTouchMode(true);
@@ -72,7 +58,7 @@ public class MyWeb extends WebView {
             }
         });
         //    webView.addJavascriptInterface(mWebViewPlugin , "Unity");
-        Log.d(TAG, "73");
+        Log.d(TAG, "62");
         WebSettings webSettings = getSettings();
         webSettings.setSupportZoom(false);
         webSettings.setJavaScriptEnabled(true);
@@ -85,47 +71,6 @@ public class MyWeb extends WebView {
         webSettings.setDatabaseEnabled(true);
         webSettings.setDomStorageEnabled(true);
         loadUrl(url);
-//        Log.d(TAG, "メイン領域生成");
-//        if (layout == null) {
-//            Log.d(TAG, "layout == null");
-//            layout = new FrameLayout(activity);
-//            activity.addContentView(layout,
-//                    new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
-//                            FrameLayout.LayoutParams.MATCH_PARENT));
-//            layout.setFocusable(true);
-//            layout.setFocusableInTouchMode(true);
-//        }
-        // webView貼り付け
-//        activity.addContentView(mWebView,
-//        // layout.addView(mWebView,
-//                new FrameLayout.LayoutParams(
-//                        FrameLayout.LayoutParams.MATCH_PARENT,
-//                        FrameLayout.LayoutParams.MATCH_PARENT,
-//                        Gravity.NO_GRAVITY));
-//        Log.d(TAG, "loadUrl url = " + url);
-//        mWebView.invalidate();
-//        mWebView.loadUrl(url);
-
-//        final View activityRootView = activity.getWindow().getDecorView().getRootView();
-//        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new android.view.ViewTreeObserver.OnGlobalLayoutListener() {
-//            @Override
-//            public void onGlobalLayout() {
-//                android.graphics.Rect r = new android.graphics.Rect();
-//                //r will be populated with the coordinates of your view that area still visible.
-//                activityRootView.getWindowVisibleDisplayFrame(r);
-//                android.view.Display display = activity.getWindowManager().getDefaultDisplay();
-//                Point size = new Point();
-//                display.getSize(size);
-//                int heightDiff = activityRootView.getRootView().getHeight() - (r.bottom - r.top);
-                //System.out.print(String.format("[NativeWebview] %d, %d\n", size.y, heightDiff));
-//                if (heightDiff > size.y / 3) { // assume that this means that the keyboard is on
-//                    UnityPlayer.UnitySendMessage(gameObject, "SetKeyboardVisible", "true");
-//                } else {
-//                    UnityPlayer.UnitySendMessage(gameObject, "SetKeyboardVisible", "false");
-//                }
-//            }
-//        });
-        //   mWebView = mWebView;
     }
 }
 
